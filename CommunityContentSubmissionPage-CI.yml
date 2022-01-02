@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: 'CommunityContentSubmissionPage.sln'
+  solution: 'Automate-an-ASP.NET-Core-Application-with-Selenium-and-SpecFlow/CommunityContentSubmissionPage.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
