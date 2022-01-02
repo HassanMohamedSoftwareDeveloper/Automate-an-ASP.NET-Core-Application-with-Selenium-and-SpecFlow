@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunityContentSubmissionPage.Specs", "CommunityContentSubmissionPage.Specs\CommunityContentSubmissionPage.Specs.csproj", "{6AE60A74-2086-4AF1-953A-49D6061F165F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunityContentSubmissionPage.Specs", "CommunityContentSubmissionPage.Specs\CommunityContentSubmissionPage.Specs.csproj", "{6AE60A74-2086-4AF1-953A-49D6061F165F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunityContentSubmissionPage", "CommunityContentSubmissionPage\CommunityContentSubmissionPage.csproj", "{C2712DA1-C004-4382-92FE-EBD7492A09F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunityContentSubmissionPage", "CommunityContentSubmissionPage\CommunityContentSubmissionPage.csproj", "{C2712DA1-C004-4382-92FE-EBD7492A09F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{8819B0DD-C320-47AB-AFA4-9285F401C2FE}"
+	ProjectSection(SolutionItems) = preProject
+		CommunityContentSubmissionPage-CI.yml = CommunityContentSubmissionPage-CI.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
