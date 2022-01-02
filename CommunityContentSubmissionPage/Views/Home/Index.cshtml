@@ -1,0 +1,27 @@
+﻿@model SubmissionModel
+
+@{
+    ViewData["Title"] = "SpecFlow Community Content Submission";
+}
+
+<div class='form-group' id="UrlDiv">
+    @Html.LabelFor(model=>model.Url,new{@class="form-label"})
+    @Html.TextBoxFor(model=>model.Url,new{@class="form-control"})
+</div>
+
+<div class='form-group' id="TypeDiv">
+    @Html.LabelFor(model=>model.Type,new{@class="form-label"})
+    @Html.TextBoxFor(model=>model.Type,new{@class="form-control"})
+</div>
+
+<div class='form-group' id="EMailDiv">
+    @Html.LabelFor(model=>model.EMail,new{@class="form-label"})
+    @Html.TextBoxFor(model=>model.EMail,new{@class="form-control"})
+</div>
+
+<div class='form-group' id="DescriptionDiv">
+    @Html.LabelFor(model=>model.Description,new{@class="form-label"})
+    @Html.TextBoxFor(model=>model.Description,new{@class="form-control"})
+</div>
+
+

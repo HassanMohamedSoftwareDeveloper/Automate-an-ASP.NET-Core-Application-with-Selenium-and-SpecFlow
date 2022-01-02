@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunityContentSubmissionPage.Specs", "CommunityContentSubmissionPage.Specs\CommunityContentSubmissionPage.Specs.csproj", "{6AE60A74-2086-4AF1-953A-49D6061F165F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunityContentSubmissionPage", "CommunityContentSubmissionPage\CommunityContentSubmissionPage.csproj", "{C2712DA1-C004-4382-92FE-EBD7492A09F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AE60A74-2086-4AF1-953A-49D6061F165F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AE60A74-2086-4AF1-953A-49D6061F165F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AE60A74-2086-4AF1-953A-49D6061F165F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AE60A74-2086-4AF1-953A-49D6061F165F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2712DA1-C004-4382-92FE-EBD7492A09F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2712DA1-C004-4382-92FE-EBD7492A09F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2712DA1-C004-4382-92FE-EBD7492A09F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2712DA1-C004-4382-92FE-EBD7492A09F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6299D5D0-F246-4AA3-8EB8-6DB11A6BAA06}
+	EndGlobalSection
+EndGlobal
