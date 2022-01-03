@@ -5,7 +5,7 @@
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>10</LangVersion>
-		<PublishChromeDriver>true</PublishChromeDriver>
+		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
 	</PropertyGroup>
 
 	<ItemGroup>
