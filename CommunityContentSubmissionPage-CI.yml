@@ -8,6 +8,10 @@ trigger:
 
 pool:
   vmImage: 'windows-latest'
+  demands:
+  - msbuild
+  - visualstudio
+
 
 variables:
   solution: 'CommunityContentSubmissionPage.sln'
@@ -15,6 +19,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: UseGitVersion@5 
+  displayName: gitversion
+  inputs: 
+    versionSpec: '5.x' 
+    updateAssemblyInfo: true
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
