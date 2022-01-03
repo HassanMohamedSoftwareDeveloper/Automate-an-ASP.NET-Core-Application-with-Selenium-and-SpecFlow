@@ -7,7 +7,7 @@ trigger:
 - Dev
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'windows-2022'
   demands:
   - msbuild
   - visualstudio
