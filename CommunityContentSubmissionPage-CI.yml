@@ -44,3 +44,8 @@ steps:
       **\CommunityContentSubmissionPage.Specs.dll
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
+- task: SpecFlowPlus@0
+  inputs:
+    generatorSource: 'TestAssembly'
+    testAssemblyFilePath: '**\CommunityContentSubmissionPage.Specs.dll       
+    !**\obj\**'
