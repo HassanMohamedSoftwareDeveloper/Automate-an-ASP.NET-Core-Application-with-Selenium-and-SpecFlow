@@ -41,6 +41,6 @@ steps:
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-      **\CommunityContentSubmissionPage.Specsdll
+      **\CommunityContentSubmissionPage.Specs.dll
       !**\obj\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
