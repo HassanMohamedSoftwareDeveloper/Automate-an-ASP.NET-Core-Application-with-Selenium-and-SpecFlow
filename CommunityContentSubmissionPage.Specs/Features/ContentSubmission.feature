@@ -14,3 +14,6 @@ Examples:
 	| Type        | Type of content    |
 	| EMail       | Your EMail address |
 	| Description | Description        |
+Scenario:Check Submit Button
+	When the submission page is open
+	Then Call Submit Button

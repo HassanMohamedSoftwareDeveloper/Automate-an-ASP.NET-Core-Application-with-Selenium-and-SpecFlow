@@ -1,4 +1,5 @@
 ﻿using CommunityContentSubmissionPage.Specs.PageObject;
+using OpenQA.Selenium;
 
 namespace CommunityContentSubmissionPage.Specs.Drivers;
 
@@ -38,5 +39,11 @@ public class SubmissionPageDriver
             default:
                 throw new NotImplementedException($"{inputType} not implemented.");
         }
+    }
+    public void SubmitRequest()
+    {
+        var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
+        var action=()=> submissionPageObjectModel.SubmitButton.Click();
+        action.Should().NotThrow<NoSuchElementException>();
     }
 }

@@ -34,6 +34,9 @@ public class SubmissionPageObjectModel
     public IWebElement DescriptionWebElement => GetWebElement(DescriptionDivElement, By.Id("Description"));
     public IWebElement DescriptionLabelWebElement => GetWebElement(DescriptionDivElement, By.TagName("label"));
     public string DescriptionLabel => DescriptionLabelWebElement.Text;
+
+
+    public IWebElement SubmitButton => GetWebElement(By.Id("BtnSubmit"));
     #endregion
     #region Helpers :
     private IWebElement GetWebElement(By by)

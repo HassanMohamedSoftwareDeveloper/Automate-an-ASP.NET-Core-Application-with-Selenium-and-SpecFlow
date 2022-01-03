@@ -26,6 +26,11 @@ public class SubmissionSteps
     {
         submissionPageDriver.CheckExistenceOfInput(inputType, expectedLabel);
     }
+    [Then(@"Call Submit Button")]
+    public void ThenCallSubmitButton()
+    {
+        submissionPageDriver.SubmitRequest();
+    }
     #endregion
-    
+
 }
