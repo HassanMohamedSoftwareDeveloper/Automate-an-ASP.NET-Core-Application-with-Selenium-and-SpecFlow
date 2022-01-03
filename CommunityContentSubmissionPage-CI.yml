@@ -38,10 +38,13 @@ steps:
     configuration: '$(buildConfiguration)'
     
 
-- task: DotNetCoreCLI@2
+- task: VSTest@2
   inputs:
-    command: 'test'
-    projects: '**/*[Tt]CommunityContentSubmissionPage.Specs/*.csproj'
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\CommunityContentSubmissionPage.Specs.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
     
 - task: SpecFlowPlus@0
   inputs:
