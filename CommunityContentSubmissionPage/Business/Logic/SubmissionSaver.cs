@@ -5,7 +5,7 @@ namespace CommunityContentSubmissionPage.Business.Logic;
  
 public interface ISubmissionSaver
 {
-    void Save(SubmissionEntry submission);
+    Task Save(SubmissionEntry submission);
 }
 public class SubmissionSaver:ISubmissionSaver
 {
@@ -15,9 +15,9 @@ public class SubmissionSaver:ISubmissionSaver
     {
         this.databaseContext = databaseContext;
     }
-    public void Save(SubmissionEntry submission)
+    public async Task Save(SubmissionEntry submission)
     {
-        databaseContext.SubmissionEntries.Add(submission);
-        databaseContext.SaveChanges();
+        await databaseContext.SubmissionEntries.AddAsync(submission);
+        await databaseContext.SaveChangesAsync();
     }
 }

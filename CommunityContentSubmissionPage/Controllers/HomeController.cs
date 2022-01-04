@@ -22,7 +22,7 @@ namespace CommunityContentSubmissionPage.Controllers
             return View(new SubmissionModel());
         }
         [HttpPost]
-        public IActionResult Index(SubmissionModel submissionModel)
+        public async Task<IActionResult> Index(SubmissionModel submissionModel)
         {
             var submission = new SubmissionEntry
             {
@@ -31,7 +31,7 @@ namespace CommunityContentSubmissionPage.Controllers
                 EMail = submissionModel.EMail,
                 Description = submissionModel.Description
             };
-            submissionSaver.Save(submission);
+            await submissionSaver.Save(submission);
 
             return RedirectToAction("Index");
         }

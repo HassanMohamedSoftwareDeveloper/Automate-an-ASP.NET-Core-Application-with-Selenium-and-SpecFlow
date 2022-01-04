@@ -1,11 +1,12 @@
 ﻿using CommunityContentSubmissionPage.Business.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace CommunityContentSubmissionPage.Business.Infrastructure;
 public interface IDatabaseContext
 {
     public DbSet<SubmissionEntry> SubmissionEntries { get; set; }
-    int SaveChanges();
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken=default);
 }
 public class DatabaseContext : DbContext, IDatabaseContext
 {
