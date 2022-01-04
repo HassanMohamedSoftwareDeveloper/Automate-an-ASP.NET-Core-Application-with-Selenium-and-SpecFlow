@@ -32,7 +32,7 @@ namespace CommunityContentSubmissionPage.Controllers
                 Description = submissionModel.Description
             };
             await submissionSaver.Save(submission);
-
+            //await Task.Delay(TimeSpan.FromSeconds(5));
             return RedirectToAction("Index");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

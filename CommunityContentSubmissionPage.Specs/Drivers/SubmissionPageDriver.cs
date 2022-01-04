@@ -55,15 +55,15 @@ public class SubmissionPageDriver
                     break;
                 case "TYPE":
                     submissionPageObjectModel.TypeWebElement.Clear();
-                    submissionPageObjectModel.TypeWebElement.Should().NotBeNull();
+                    submissionPageObjectModel.TypeWebElement.SendKeys(row.Value);
                     break;
                 case "EMAIL":
                     submissionPageObjectModel.EMailWebElement.Clear();
-                    submissionPageObjectModel.EMailWebElement.Should().NotBeNull();
+                    submissionPageObjectModel.EMailWebElement.SendKeys(row.Value);
                     break;
                 case "DESCRIPTION":
                     submissionPageObjectModel.DescriptionWebElement.Clear();
-                    submissionPageObjectModel.DescriptionWebElement.Should().NotBeNull();
+                    submissionPageObjectModel.DescriptionWebElement.SendKeys(row.Value);
                     break;
                 default:
                     throw new NotImplementedException($"{row.Label} not implemented.");
