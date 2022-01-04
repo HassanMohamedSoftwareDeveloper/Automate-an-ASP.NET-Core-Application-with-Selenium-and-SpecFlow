@@ -21,6 +21,7 @@ public class WebPageStepDefinitions
     #endregion
 
     #region Steps :
+    [Given(@"the submission page is open")]
     [When(@"the submission page is open")]
     public void WhenTheSubmissionpageIsOpen()
     {

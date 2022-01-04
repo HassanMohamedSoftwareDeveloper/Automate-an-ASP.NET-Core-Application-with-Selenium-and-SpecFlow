@@ -1,4 +1,5 @@
 ﻿using CommunityContentSubmissionPage.Specs.PageObject;
+using CommunityContentSubmissionPage.Specs.Support;
 using OpenQA.Selenium;
 
 namespace CommunityContentSubmissionPage.Specs.Drivers;
@@ -40,10 +41,46 @@ public class SubmissionPageDriver
                 throw new NotImplementedException($"{inputType} not implemented.");
         }
     }
+
+    public void InputForm(IEnumerable<SubmissionEntryFormRowObject> rows)
+    {
+        var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
+        foreach (var row in rows)
+        {
+            switch (row.Label.ToUpper())
+            {
+                case "URL":
+                    submissionPageObjectModel.UrlWebElement.Clear();
+                    submissionPageObjectModel.UrlWebElement.SendKeys(row.Value);
+                    break;
+                case "TYPE":
+                    submissionPageObjectModel.TypeWebElement.Clear();
+                    submissionPageObjectModel.TypeWebElement.Should().NotBeNull();
+                    break;
+                case "EMAIL":
+                    submissionPageObjectModel.EMailWebElement.Clear();
+                    submissionPageObjectModel.EMailWebElement.Should().NotBeNull();
+                    break;
+                case "DESCRIPTION":
+                    submissionPageObjectModel.DescriptionWebElement.Clear();
+                    submissionPageObjectModel.DescriptionWebElement.Should().NotBeNull();
+                    break;
+                default:
+                    throw new NotImplementedException($"{row.Label} not implemented.");
+            }
+        }
+       
+    }
+
     public void SubmitRequest()
     {
         var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
         var action=()=> submissionPageObjectModel.SubmitButton.Click();
         action.Should().NotThrow<NoSuchElementException>();
+    }
+    public void SubmitForm()
+    {
+        var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
+        submissionPageObjectModel.SubmitButton.Click();
     }
 }

@@ -3,7 +3,8 @@
 @{
     ViewData["Title"] = "SpecFlow Community Content Submission";
 }
-
+@using(Html.BeginForm(FormMethod.Post))
+{
 <div class='form-group' id="UrlDiv">
     @Html.LabelFor(model=>model.Url,new{@class="form-label"})
     @Html.TextBoxFor(model=>model.Url,new{@class="form-control"})
@@ -23,5 +24,8 @@
     @Html.LabelFor(model=>model.Description,new{@class="form-label"})
     @Html.TextBoxFor(model=>model.Description,new{@class="form-control"})
 </div>
+<div class='form-group'>
+    <input type="submit" class="btn btn-success" value="Submit" id="BtnSubmit" onclick="alert('Welcom!');" />
+</div>
 
-<input type="button" class="btn btn-success" value="Submit" id="BtnSubmit" onclick="alert('Welcom!');" />
+}
