@@ -10,7 +10,7 @@ public class SubmissionDriver
     {
         this.databaseContext = databaseContext;
     }
-    public void AssertNewSubmissionEntryExists()
+    public void AssertOneSubmissionEntryExists()
     {
         databaseContext.SubmissionEntries.Count().Should().BeGreaterThan(0);
     }

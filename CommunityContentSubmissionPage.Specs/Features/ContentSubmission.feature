@@ -28,4 +28,4 @@ Assumption: There are no entries in the database
 		| Email       | HassanMohamed_Hm@Hotmail.com |
 		| Description | Test                         |
 	When the submission entry form is submitted
-	Then there is a new submission entry stored
+	Then there is one submission entry stored

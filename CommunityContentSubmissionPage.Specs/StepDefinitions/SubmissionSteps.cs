@@ -46,10 +46,10 @@ public class SubmissionSteps
        submissionPageDriver.SubmitForm();
     }
 
-    [Then(@"there is a new submission entry stored")]
+    [Then(@"there is one submission entry stored")]
     public void ThenThereIsANewSubmissionEntryStored()
     {
-        submissionDriver.AssertNewSubmissionEntryExists();
+        submissionDriver.AssertOneSubmissionEntryExists();
     }
 
 
