@@ -1,7 +1,5 @@
 ﻿using CommunityContentSubmissionPage.Specs.Drivers;
-using CommunityContentSubmissionPage.Specs.PageObject;
 using CommunityContentSubmissionPage.Specs.Support;
-using OpenQA.Selenium;
 using TechTalk.SpecFlow.Assist;
 
 namespace CommunityContentSubmissionPage.Specs.StepDefinitions;
@@ -10,15 +8,15 @@ namespace CommunityContentSubmissionPage.Specs.StepDefinitions;
 public class SubmissionSteps
 {
     #region Fields :
-    private readonly WebDriverDriver webDriverDriver;
     private readonly SubmissionPageDriver submissionPageDriver;
+    private readonly SubmissionDriver submissionDriver;
     #endregion
 
     #region CTORS :
-    public SubmissionSteps(WebDriverDriver webDriverDriver,SubmissionPageDriver submissionPageDriver)
+    public SubmissionSteps(SubmissionPageDriver submissionPageDriver,SubmissionDriver submissionDriver)
     {
-        this.webDriverDriver = webDriverDriver;
         this.submissionPageDriver = submissionPageDriver;
+        this.submissionDriver = submissionDriver;
     }
     #endregion
 
@@ -51,7 +49,7 @@ public class SubmissionSteps
     [Then(@"there is a new submission entry stored")]
     public void ThenThereIsANewSubmissionEntryStored()
     {
-        throw new PendingStepException();
+        submissionDriver.AssertNewSubmissionEntryExists();
     }
 
 

@@ -1,12 +1,15 @@
-﻿namespace CommunityContentSubmissionPage
+﻿using CommunityContentSubmissionPage.Business.Infrastructure;
+using CommunityContentSubmissionPage.Business.Logic;
+
+namespace CommunityContentSubmissionPage
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            //var databaseContext = new DatabaseContext();
-            //databaseContext.Database.EnsureCreated();
+            var databaseContext = new DatabaseContext();
+            databaseContext.Database.EnsureCreated();
         }
 
         public IConfiguration Configuration { get; }
@@ -18,8 +21,8 @@
             services.AddControllersWithViews();
 
 
-            //services.AddScoped<IDatabaseContext, DatabaseContext>();
-            //services.AddScoped<ISubmissionSaver, SubmissionSaver>();
+            services.AddScoped<IDatabaseContext, DatabaseContext>();
+            services.AddScoped<ISubmissionSaver, SubmissionSaver>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

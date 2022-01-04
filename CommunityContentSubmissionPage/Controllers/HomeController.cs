@@ -1,4 +1,6 @@
-﻿using CommunityContentSubmissionPage.Models;
+﻿using CommunityContentSubmissionPage.Business.Logic;
+using CommunityContentSubmissionPage.Business.Model;
+using CommunityContentSubmissionPage.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,10 +8,12 @@ namespace CommunityContentSubmissionPage.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ISubmissionSaver submissionSaver;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ISubmissionSaver submissionSaver, ILogger<HomeController> logger)
         {
+            this.submissionSaver = submissionSaver;
             _logger = logger;
         }
         [HttpGet]
@@ -18,9 +22,18 @@ namespace CommunityContentSubmissionPage.Controllers
             return View(new SubmissionModel());
         }
         [HttpPost]
-        public IActionResult Index()
+        public IActionResult Index(SubmissionModel submissionModel)
         {
-            return View();
+            var submission = new SubmissionEntry
+            {
+                Url = submissionModel.Url,
+                Type = submissionModel.Type,
+                EMail = submissionModel.EMail,
+                Description = submissionModel.Description
+            };
+            submissionSaver.Save(submission);
+
+            return RedirectToAction("Index");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

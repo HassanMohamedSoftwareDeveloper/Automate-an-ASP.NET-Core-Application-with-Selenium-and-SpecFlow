@@ -17,8 +17,8 @@ public class WebServerHooks
     #endregion
 
     #region Hooks :
-    [BeforeScenario]
-    public void BeforeScenario()
+    [BeforeScenario(Order =1000)]
+    public void StartWebServer()
     {
         _webServerDriver.StartWebServer();
     }
