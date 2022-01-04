@@ -26,13 +26,7 @@ public class SubmissionSteps
     {
         submissionPageDriver.CheckExistenceOfInput(inputType, expectedLabel);
     }
-    [Then(@"Call Submit Button")]
-    public void ThenCallSubmitButton()
-    {
-        submissionPageDriver.SubmitRequest();
-    }
-
-
+ 
     [Given(@"the filled out submission entry form")]
     public void GivenTheFilledOutSubmissionEntryForm(Table table)
     {

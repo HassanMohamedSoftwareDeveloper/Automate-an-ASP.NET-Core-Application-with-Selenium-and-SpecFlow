@@ -27,7 +27,6 @@ public class WebPageStepDefinitions
     {
         browserDriver.GoToUrl(webServerDriver.Hostname);
     }
-
     [Then(@"the title of the page is '([^']*)'")]
     public void ThenTheTitleOfThePageIs(string expectedPageTitle)
     {
