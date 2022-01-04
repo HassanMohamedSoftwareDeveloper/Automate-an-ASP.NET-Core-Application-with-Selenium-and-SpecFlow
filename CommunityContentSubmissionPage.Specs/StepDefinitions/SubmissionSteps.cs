@@ -51,7 +51,20 @@ public class SubmissionSteps
     {
         submissionDriver.AssertNumberOfEntriesStored(expectedCountOfStoredEntries);
     }
-
+    [Then(@"there is a submission entry stored with the following data :")]
+    public void ThenThereIsASubmissionEntryStoredWithTheFollowingData(Table table)
+    {
+       var expectedSubmissionEntry= table.CreateInstance<ExpectedSubmissionEntry>();
+        submissionDriver.AssertSubmissionEntryData(expectedSubmissionEntry);
+    }
     #endregion
 
+}
+public class ExpectedSubmissionEntry
+{
+    public int Id { get; set; }
+    public string Type { get; set; }
+    public string Url { get; set; }
+    public string Email { get; set; }
+    public string Description { get; set; }
 }
