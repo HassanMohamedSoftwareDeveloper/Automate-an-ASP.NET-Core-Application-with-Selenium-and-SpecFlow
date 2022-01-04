@@ -52,6 +52,11 @@ public class SubmissionSteps
         submissionDriver.AssertOneSubmissionEntryExists();
     }
 
+    [Then(@"there is '(.*)' submission entry stored")]
+    public void ThenThereIsSubmissionEntryStored(int expectedCountOfStoredEntries)
+    {
+        submissionDriver.AssertNumberOfEntriesStored(expectedCountOfStoredEntries);
+    }
 
     #endregion
 
