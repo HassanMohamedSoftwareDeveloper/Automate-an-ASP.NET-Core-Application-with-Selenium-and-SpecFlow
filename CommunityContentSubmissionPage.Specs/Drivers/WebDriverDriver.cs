@@ -21,9 +21,9 @@ public class WebDriverDriver:IDisposable
     public void Dispose()
     {
         webDriver.Value.Quit();
-    } 
+    }
     #endregion
     #region Helpers :
-    private static IWebDriver CreateWebDriver() => new ChromeDriver(); 
+    private static IWebDriver CreateWebDriver() => new ChromeDriver();
     #endregion
 }

@@ -15,4 +15,10 @@ public class DIConfiguration
     {
         scenarioContext.ScenarioContainer.RegisterTypeAs<DatabaseContext,IDatabaseContext>(); 
     }
+    [AfterScenario]
+    public void CleanUp()
+    {
+        DatabaseContext dataContext = scenarioContext.ScenarioContainer.Resolve<DatabaseContext>();
+        dataContext.Database.EnsureDeleted();
+    }
 }

@@ -57,8 +57,20 @@ public class SubmissionSteps
        var expectedSubmissionEntry= table.CreateInstance<ExpectedSubmissionEntry>();
         submissionDriver.AssertSubmissionEntryData(expectedSubmissionEntry);
     }
+
+    [Then(@"you can choose from the following Types:")]
+    public void ThenYouCanChooseFromTheFollowingTypes(Table table)
+    {
+        var entries= table.CreateSet<EntryType>();
+        submissionPageDriver.CheckTypeEntries(entries);
+    }
+
     #endregion
 
+}
+public class EntryType
+{
+    public string TypeName { get; set; }
 }
 public class ExpectedSubmissionEntry
 {

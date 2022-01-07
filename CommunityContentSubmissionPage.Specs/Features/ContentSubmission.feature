@@ -15,6 +15,13 @@ Examples:
 	| EMail       | Your EMail address |
 	| Description | Description        |
 
+Scenario: Type should offer a list of unique entries
+	When the submission page is open
+	Then you can choose from the following Types:
+		| TypeName |
+		| Books    |
+		| Videos   |
+		| Examples |
 
 Scenario: Entered values from submission page is saved
 	Given the submission page is open
@@ -27,4 +34,5 @@ Scenario: Entered values from submission page is saved
 	When the submission entry form is submitted
 	Then there is a submission entry stored with the following data :
 		| Id | Url                      | Type    | Email                        | Description |
-		| 10  | https://www.specflow.org | Website | HassanMohamed_Hm@Hotmail.com | Test        |
+		| 1  | https://www.specflow.org | Website | HassanMohamed_Hm@Hotmail.com | Test        |
+

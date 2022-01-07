@@ -1,6 +1,8 @@
 ﻿using CommunityContentSubmissionPage.Specs.PageObject;
+using CommunityContentSubmissionPage.Specs.StepDefinitions;
 using CommunityContentSubmissionPage.Specs.Support;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace CommunityContentSubmissionPage.Specs.Drivers;
 
@@ -82,5 +84,13 @@ public class SubmissionPageDriver
     {
         var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
         submissionPageObjectModel.SubmitButton.Click();
+    }
+    public void CheckTypeEntries(IEnumerable<EntryType> expectedTypeEntries)
+    {
+        var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
+        var typeSelectElement = new SelectElement(submissionPageObjectModel.TypeWebElement);
+        var webElements = typeSelectElement.Options.ToList();
+        var actualTypeEntries = webElements.Select(i => new EntryType { TypeName = i.Text }).ToList();
+        actualTypeEntries.Should().BeEquivalentTo(expectedTypeEntries);
     }
 }
