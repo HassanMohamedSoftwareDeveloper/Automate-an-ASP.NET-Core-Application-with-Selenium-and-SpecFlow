@@ -12,4 +12,6 @@ public class SubmissionModel
     public string EMail { get; set; }
     [DisplayName("Description")]
     public string Description { get; set; }
+    [DisplayName("You need to accept our privacy to be able to submit an entry")]
+    public bool AcceptPrivacyPolicy { get; set; }
 }

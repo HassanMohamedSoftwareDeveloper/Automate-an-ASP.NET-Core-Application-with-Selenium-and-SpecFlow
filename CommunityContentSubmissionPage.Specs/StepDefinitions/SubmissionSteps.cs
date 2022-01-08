@@ -65,6 +65,41 @@ public class SubmissionSteps
         submissionPageDriver.CheckTypeEntries(entries);
     }
 
+    [Given(@"the submission entry form is filled")]
+    public void GivenTheSubmissionEntryFormIsFilled()
+    {
+        submissionPageDriver.InputForm(new List<SubmissionEntryFormRowObject>
+        {
+            new SubmissionEntryFormRowObject{ Label="Url",Value="https://www.specflow.org"},
+            new SubmissionEntryFormRowObject{ Label="Type",Value="Books"},
+            new SubmissionEntryFormRowObject{ Label="Email",Value="HassanMohamed_Hm@Hotmail.com"},
+            new SubmissionEntryFormRowObject{ Label="Description",Value="Test"},
+        });
+    }
+    [Given(@"the privacy policy is not accepted")]
+    public void GivenThePrivacyPolicyIsNotAccepted()
+    {
+        submissionPageDriver.DoNotAcceptPrivacyPolicy();
+    }
+    [Given(@"the privacy policy is accepted")]
+    public void GivenThePrivacyPolicyIsAccepted()
+    {
+        submissionPageDriver.AcceptPrivacyPolicy();
+    }
+
+    [Then(@"the submittingg of data was possible")]
+    public void ThenTheSubmittinggOfDataWasPossible()
+    {
+        submissionDriver.AssertNumberOfEntriesStored(1);
+    }
+    [Then(@"tthe submittingg of data was not possible")]
+    public void ThenTtheSubmittinggOfDataWasNotPossible()
+    {
+        submissionDriver.AssertNumberOfEntriesStored(0);
+    }
+
+
+
     #endregion
 
 }

@@ -1,5 +1,6 @@
 ﻿using CommunityContentSubmissionPage.Specs.Drivers;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace CommunityContentSubmissionPage.Specs.PageObject;
 
@@ -21,7 +22,7 @@ public class SubmissionPageObjectModel
     public string UrlLabel => UrlLabelWebElement.Text;
 
     private IWebElement TypeDivElement => GetWebElement(By.Id("TypeDiv"));
-    public IWebElement TypeWebElement => GetWebElement(TypeDivElement, By.Id("Type"));
+    public SelectElement TypeWebElement =>new(GetWebElement(TypeDivElement, By.Id("Type")));
     public IWebElement TypeLabelWebElement => GetWebElement(TypeDivElement, By.TagName("label"));
     public string TypeLabel => TypeLabelWebElement.Text;
 
@@ -35,6 +36,9 @@ public class SubmissionPageObjectModel
     public IWebElement DescriptionLabelWebElement => GetWebElement(DescriptionDivElement, By.TagName("label"));
     public string DescriptionLabel => DescriptionLabelWebElement.Text;
 
+
+    private IWebElement PolicyDivElement => GetWebElement(By.Id("PolicyDiv"));
+    public IWebElement AcceptPrivacyPolicyWebElement => GetWebElement(PolicyDivElement, By.Id("AcceptPrivacyPolicy"));
 
     public IWebElement SubmitButton => GetWebElement(By.Id("BtnSubmit"));
 

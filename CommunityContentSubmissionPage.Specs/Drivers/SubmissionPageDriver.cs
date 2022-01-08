@@ -2,7 +2,6 @@
 using CommunityContentSubmissionPage.Specs.StepDefinitions;
 using CommunityContentSubmissionPage.Specs.Support;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 
 namespace CommunityContentSubmissionPage.Specs.Drivers;
 
@@ -56,8 +55,7 @@ public class SubmissionPageDriver
                     submissionPageObjectModel.UrlWebElement.SendKeys(row.Value);
                     break;
                 case "TYPE":
-                    submissionPageObjectModel.TypeWebElement.Clear();
-                    submissionPageObjectModel.TypeWebElement.SendKeys(row.Value);
+                    submissionPageObjectModel.TypeWebElement.SelectByText(row.Value);
                     break;
                 case "EMAIL":
                     submissionPageObjectModel.EMailWebElement.Clear();
@@ -80,6 +78,20 @@ public class SubmissionPageDriver
         var action=()=> submissionPageObjectModel.SubmitButton.Click();
         action.Should().NotThrow<NoSuchElementException>();
     }
+
+    internal void DoNotAcceptPrivacyPolicy()
+    {
+        var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
+        if (submissionPageObjectModel.AcceptPrivacyPolicyWebElement.Selected)
+            submissionPageObjectModel.AcceptPrivacyPolicyWebElement.Click();
+    }
+
+    internal void AcceptPrivacyPolicy()
+    {
+        var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
+        submissionPageObjectModel.AcceptPrivacyPolicyWebElement.Click();
+    }
+
     public void SubmitForm()
     {
         var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
@@ -88,7 +100,7 @@ public class SubmissionPageDriver
     public void CheckTypeEntries(IEnumerable<EntryType> expectedTypeEntries)
     {
         var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
-        var typeSelectElement = new SelectElement(submissionPageObjectModel.TypeWebElement);
+        var typeSelectElement = submissionPageObjectModel.TypeWebElement;
         var webElements = typeSelectElement.Options.ToList();
         var actualTypeEntries = webElements.Select(i => new EntryType { TypeName = i.Text }).ToList();
         actualTypeEntries.Should().BeEquivalentTo(expectedTypeEntries);

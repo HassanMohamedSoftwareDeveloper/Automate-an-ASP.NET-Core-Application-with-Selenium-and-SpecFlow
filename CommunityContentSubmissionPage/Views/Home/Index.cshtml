@@ -3,34 +3,39 @@
 @{
     ViewData["Title"] = "SpecFlow Community Content Submission";
 }
-@using(Html.BeginForm(FormMethod.Post))
+@using (Html.BeginForm(FormMethod.Post))
 {
-<div class='form-group' id="UrlDiv">
-    @Html.LabelFor(model=>model.Url,new{@class="form-label"})
-    @Html.TextBoxFor(model=>model.Url,new{@class="form-control"})
-</div>
+    <div class='form-group' id="UrlDiv">
+        @Html.LabelFor(model=>model.Url,new{@class="form-label"})
+        @Html.TextBoxFor(model=>model.Url,new{@class="form-control"})
+    </div>
 
-<div class='form-group' id="TypeDiv">
-    @Html.LabelFor(model=>model.Type,new{@class="form-label"})
-    <select id="Type" class="form-control" name="Type">
-        <option selected>Books</option>
-        <option>Videos</option>
-        <option>Examples</option>
-    </select>
-@*    @Html.TextBoxFor(model=>model.Type,new{@class="form-control"})
-*@</div>
+    <div class='form-group' id="TypeDiv">
+        @Html.LabelFor(model=>model.Type,new{@class="form-label"})
+        <select id="Type" class="form-control" name="Type">
+            <option selected>Books</option>
+            <option>Videos</option>
+            <option>Examples</option>
+        </select>
+        @*    @Html.TextBoxFor(model=>model.Type,new{@class="form-control"})
+        *@
+    </div>
 
-<div class='form-group' id="EMailDiv">
-    @Html.LabelFor(model=>model.EMail,new{@class="form-label"})
-    @Html.TextBoxFor(model=>model.EMail,new{@class="form-control"})
-</div>
+    <div class='form-group' id="EMailDiv">
+        @Html.LabelFor(model=>model.EMail,new{@class="form-label"})
+        @Html.TextBoxFor(model=>model.EMail,new{@class="form-control"})
+    </div>
 
-<div class='form-group' id="DescriptionDiv">
-    @Html.LabelFor(model=>model.Description,new{@class="form-label"})
-    @Html.TextBoxFor(model=>model.Description,new{@class="form-control"})
-</div>
-<div class='form-group'>
-    <input type="submit" class="btn btn-success" value="Submit" id="BtnSubmit"  />
-</div>
+    <div class='form-group' id="DescriptionDiv">
+        @Html.LabelFor(model=>model.Description,new{@class="form-label"})
+        @Html.TextBoxFor(model=>model.Description,new{@class="form-control"})
+    </div>
+    <div class="form-check" id="PolicyDiv">
+        @Html.LabelFor(model=>model.AcceptPrivacyPolicy,new{@class="form-check-label"})
+        @Html.CheckBoxFor(model=>model.AcceptPrivacyPolicy,new{@class="form-check-input"})
+    </div>
+    <div class='form-group'>
+        <input type="submit" class="btn btn-success" value="Submit" id="BtnSubmit" />
+    </div>
 
 }
