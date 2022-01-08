@@ -41,6 +41,7 @@ public class SubmissionPageObjectModel
     public IWebElement AcceptPrivacyPolicyWebElement => GetWebElement(PolicyDivElement, By.Id("AcceptPrivacyPolicy"));
 
     public IWebElement SubmitButton => GetWebElement(By.Id("BtnSubmit"));
+    public IWebElement ResetButton => GetWebElement(By.Id("BtnReset"));
 
 
     

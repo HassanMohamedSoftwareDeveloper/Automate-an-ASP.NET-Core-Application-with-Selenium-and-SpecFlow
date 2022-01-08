@@ -100,6 +100,16 @@ public class SubmissionSteps
         browserDriver.Url.Should().NotEndWith("Success");
     }
 
+    [When(@"the form is reset")]
+    public void WhenTheFormIsReset()
+    {
+        submissionPageDriver.ResetForm();
+    }
+    [Then(@"every input is set to its default values")]
+    public void ThenEveryInputIsSetToItsDefaultValues()
+    {
+        submissionPageDriver.CheckDefaultValues();
+    }
 
 
     #endregion

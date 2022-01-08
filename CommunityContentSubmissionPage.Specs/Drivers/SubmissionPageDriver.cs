@@ -69,13 +69,13 @@ public class SubmissionPageDriver
                     throw new NotImplementedException($"{row.Label} not implemented.");
             }
         }
-       
+
     }
 
     public void SubmitRequest()
     {
         var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
-        var action=()=> submissionPageObjectModel.SubmitButton.Click();
+        var action = () => submissionPageObjectModel.SubmitButton.Click();
         action.Should().NotThrow<NoSuchElementException>();
     }
 
@@ -97,6 +97,23 @@ public class SubmissionPageDriver
         var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
         submissionPageObjectModel.SubmitButton.Click();
     }
+
+    internal void ResetForm()
+    {
+        var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
+        submissionPageObjectModel.ResetButton.Click();
+    }
+
+    internal void CheckDefaultValues()
+    {
+        var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
+        submissionPageObjectModel.UrlWebElement.Text.Should().BeEmpty();
+        submissionPageObjectModel.TypeWebElement.SelectedOption.Text.Should().Be("Books");
+        submissionPageObjectModel.EMailWebElement.Text.Should().BeEmpty();
+        submissionPageObjectModel.DescriptionWebElement.Text.Should().BeEmpty();
+        submissionPageObjectModel.AcceptPrivacyPolicyWebElement.Selected.Should().BeFalse();
+    }
+
     public void CheckTypeEntries(IEnumerable<EntryType> expectedTypeEntries)
     {
         var submissionPageObjectModel = new SubmissionPageObjectModel(webDriverDriver);
