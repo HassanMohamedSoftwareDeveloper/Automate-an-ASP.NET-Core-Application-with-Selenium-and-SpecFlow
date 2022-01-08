@@ -22,10 +22,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Features\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ProjectReference Include="..\CommunityContentSubmissionPage\CommunityContentSubmissionPage.csproj" />
 	</ItemGroup>
 
