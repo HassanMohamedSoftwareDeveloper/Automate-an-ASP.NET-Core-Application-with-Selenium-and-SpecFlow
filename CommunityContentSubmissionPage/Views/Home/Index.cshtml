@@ -7,6 +7,7 @@
     <div class='form-group' id="UrlDiv">
         <label asp-for="Url" class="form-label"></label>
         <input asp-for="Url" class="form-control" />
+        <spann asp-validation-for="Url" class="text-danger"></spann>
     </div>
 
     <div class='form-group' id="TypeDiv">
@@ -16,20 +17,24 @@
             <option>Videos</option>
             <option>Examples</option>
         </select>
+        <spann asp-validation-for="Type" class="text-danger"></spann>
     </div>
 
     <div class='form-group' id="EMailDiv">
         <label asp-for="EMail" class="form-label"></label>
         <input asp-for="EMail" class="form-control" />
+        <spann asp-validation-for="EMail" class="text-danger"></spann>
     </div>
 
     <div class='form-group' id="DescriptionDiv">
         <label asp-for="Description" class="form-label"></label>
         <input asp-for="Description" class="form-control" />
+        <spann asp-validation-for="Description" class="text-danger"></spann>
     </div>
     <div class="form-check" id="PolicyDiv">
         <input asp-for="AcceptPrivacyPolicy" class="form-check-input" />
         <label asp-for="AcceptPrivacyPolicy" class="form-check-label"></label>
+        <spann asp-validation-for="AcceptPrivacyPolicy" class="text-danger"></spann>
     </div>
     <div class='form-group'>
         <input type="submit" class="btn btn-success" value="Submit" id="BtnSubmit" />

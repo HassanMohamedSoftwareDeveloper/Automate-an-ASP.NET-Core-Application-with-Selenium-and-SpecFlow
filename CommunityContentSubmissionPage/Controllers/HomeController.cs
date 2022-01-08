@@ -24,6 +24,8 @@ namespace CommunityContentSubmissionPage.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(SubmissionModel submissionModel)
         {
+            if (ModelState.IsValid is false) return View(submissionModel);
+
             var submission = new SubmissionEntry
             {
                 Url = submissionModel.Url,
@@ -32,7 +34,6 @@ namespace CommunityContentSubmissionPage.Controllers
                 Description = submissionModel.Description
             };
             await submissionSaver.Save(submission);
-            //await Task.Delay(TimeSpan.FromSeconds(5));
             return RedirectToAction("Index");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

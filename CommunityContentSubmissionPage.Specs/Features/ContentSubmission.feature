@@ -28,12 +28,13 @@ Scenario: Entered values from submission page is saved
 	And the filled out submission entry form
 		| Label       | Value                        |
 		| Url         | https://www.specflow.org     |
-		| Type        | Books                      |
+		| Type        | Books                        |
 		| Email       | HassanMohamed_Hm@Hotmail.com |
 		| Description | Test                         |
+	And the privacy policy is accepted
 	When the submission entry form is submitted
 	Then there is a submission entry stored with the following data :
-		| Id | Url                      | Type    | Email                        | Description |
+		| Id | Url                      | Type  | Email                        | Description |
 		| 1  | https://www.specflow.org | Books | HassanMohamed_Hm@Hotmail.com | Test        |
 
 Scenario: User does not accept the privacy policy should be an error when submitting
@@ -41,11 +42,11 @@ Scenario: User does not accept the privacy policy should be an error when submit
 	And the submission entry form is filled
 	But the privacy policy is not accepted
 	When the submission entry form is submitted
-	Then  tthe submittingg of data was not possible
+	Then tthe submittingg of data was not possible
 
 Scenario: User agrees to privacy data should be submitted
 	Given the submission page is open
 	And the submission entry form is filled
 	But the privacy policy is accepted
 	When the submission entry form is submitted
-	Then  the submittingg of data was possible
+	Then the submittingg of data was possible
