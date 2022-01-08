@@ -1,5 +1,5 @@
 ﻿using CommunityContentSubmissionPage.Business.Infrastructure;
-using CommunityContentSubmissionPage.Specs.StepDefinitions;
+using CommunityContentSubmissionPage.Specs.Support;
 
 namespace CommunityContentSubmissionPage.Specs.Drivers;
 
