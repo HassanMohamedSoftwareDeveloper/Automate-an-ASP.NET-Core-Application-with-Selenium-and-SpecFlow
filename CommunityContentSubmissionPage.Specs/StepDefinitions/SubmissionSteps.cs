@@ -10,13 +10,15 @@ public class SubmissionSteps
     #region Fields :
     private readonly SubmissionPageDriver submissionPageDriver;
     private readonly SubmissionDriver submissionDriver;
+    private readonly BrowserDriver browserDriver;
     #endregion
 
     #region CTORS :
-    public SubmissionSteps(SubmissionPageDriver submissionPageDriver,SubmissionDriver submissionDriver)
+    public SubmissionSteps(SubmissionPageDriver submissionPageDriver,SubmissionDriver submissionDriver,BrowserDriver browserDriver)
     {
         this.submissionPageDriver = submissionPageDriver;
         this.submissionDriver = submissionDriver;
+        this.browserDriver = browserDriver;
     }
     #endregion
 
@@ -90,12 +92,12 @@ public class SubmissionSteps
     [Then(@"the submittingg of data was possible")]
     public void ThenTheSubmittinggOfDataWasPossible()
     {
-        submissionDriver.AssertNumberOfEntriesStored(1);
+        browserDriver.Url.Should().EndWith("Success");
     }
     [Then(@"tthe submittingg of data was not possible")]
     public void ThenTtheSubmittinggOfDataWasNotPossible()
     {
-        submissionDriver.AssertNumberOfEntriesStored(0);
+        browserDriver.Url.Should().NotEndWith("Success");
     }
 
 

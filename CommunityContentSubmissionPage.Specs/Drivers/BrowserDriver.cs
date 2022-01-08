@@ -15,6 +15,7 @@ public class BrowserDriver
 
     #region PROPS :
     public string Title => webDriverDriver.WebDriver.Title;
+    public string Url => webDriverDriver.WebDriver.Url;
     #endregion
 
     #region Methods :
